@@ -35,10 +35,7 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys(Keys.ENTER)
         table = self.browser.find_element_by_id('todo_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1. Think about what to do' for row in rows),
-            'New to-do item did not appear in table'
-        )
+        self.assertIn('1. Think about what to do', [row.text for row in rows])
 
         # There is still a text box inviting him to add another item
         self.fail("Finish the test!")
