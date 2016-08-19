@@ -8,7 +8,9 @@
     <input name="item_text" id="new_item_box"
       placeholder="Enter a to-do item" />
     <table id="todo_list_table">
-      <tr><td>1. {{ new_item_text }}</td></tr>
+      {% for item in items %}
+        <tr><td>{{ item.text }}</td></tr>
+      {% endfor %}
     </table>
     {% csrf_token %}
   </form>
